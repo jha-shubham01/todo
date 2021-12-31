@@ -19,5 +19,5 @@ class TODOViewSet(viewsets.ModelViewSet):
     ]
     filterset_fields = ("title", "user", "is_complete")
     search_fields = ("title")
-    ordering_fields = ("created_at", "updated_at")
+    ordering_fields = ("is_complete", "created_at", "updated_at")
 
