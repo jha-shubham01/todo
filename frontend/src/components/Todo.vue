@@ -38,22 +38,22 @@
     <v-row>
       <v-col cols="12" v-if="todoList.length">
         <h3>List:</h3>
-        
+
         <v-list>
-          <v-list-item-group
-            v-model="selected"
-            color="deep-purple"
+          <v-list-item-group 
+            v-model="selected" 
+            color="deep-purple" 
             multiple
           >
-            <v-list-item 
+            <v-list-item
               v-for="item in todoList"
               :key="item.id"
-              @click="updateStatus(item);" 
+              @click="updateStatus(item);"
             >
               <v-list-item-icon>
                 {{ item.id }}
               </v-list-item-icon>
-              
+
               <v-list-item-content>
                 <v-list-item-title>
                   <strong>{{ item.title }}</strong>
@@ -70,7 +70,7 @@
                   color="deep-purple "
                 ></v-checkbox>
               </v-list-item-action>
-            
+
             </v-list-item>
           </v-list-item-group>
         </v-list>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data: () => ({
     selected: [],
@@ -104,43 +104,36 @@ export default {
   },
   methods: {
     getTodos() {
-      axios
-        .get(`${this.url}?ordering=is_complete`)
-        .then(response => {
-          this.todoList = response.data;
-          response.data.forEach((element, index) => {
-            if (!element.is_complete)
-              this.selected.push(index);
-            this.$forceUpdate();
-          });
+      axios.get(`${this.url}?ordering=is_complete`).then((response) => {
+        this.todoList = response.data;
+        response.data.forEach((element, index) => {
+          if (!element.is_complete) this.selected.push(index);
+          this.$forceUpdate();
         });
+      });
     },
     reset() {
       this.$refs.form.reset();
     },
     add() {
       var data = this.newTodo;
-      axios
-        .post(this.url, data)
-        .then(response => {
-          console.log(response);
-          this.getTodos();
-        });
+      axios.post(this.url, data).then((response) => {
+        console.log(response);
+        this.getTodos();
+      });
     },
     updateStatus(item) {
-      item.is_complete = !item.is_complete; 
+      item.is_complete = !item.is_complete;
 
-      const url = `$${item.id}/`;
+      const url = `${this.url}${item.id}/`;
       var data = {
-        is_complete: item.is_complete
+        is_complete: item.is_complete,
       };
-      axios
-        .patch(url, data)
-        .then(response => {
-          console.log(response);
-          this.getTodos();
-        });
-    }
+      axios.patch(url, data).then((response) => {
+        console.log(response);
+        this.getTodos();
+      });
+    },
   },
 };
 </script>
