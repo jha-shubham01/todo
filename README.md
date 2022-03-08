@@ -2,14 +2,14 @@
 
 # Description
 This project is a simple TODO web application <br />
-where backend and frontend are standalone apps.
+where the backend and frontend are standalone apps.
 
 ## Technology Stack
 Backend: Django, Django Rest Framework <br />
 Frontend: VueJS CLI
 
 ## To run the project
-Prerequisits: Python3, virutalenv, node, npm
+Prerequisites: Python3, virutalenv, node, npm
 
 1. Checkout the code
 ### Backend
@@ -18,8 +18,8 @@ Prerequisits: Python3, virutalenv, node, npm
 4. Install all the packages (pip install -r requirements.txt)
 5. Navigate inside the project (cd backend)
 6. Migrate (python manage.py migrate)
-7. Create a super user (python manage.py createsuperuser) <br />
-   Fill in all the details on the terminal to create the super user
+7. Create a superuser (python manage.py createsuperuser) <br />
+   Fill in all the details on the terminal to create the superuser
 8. Run the backend server (python manage.py runserver)
 
 ### Frontend
@@ -34,8 +34,8 @@ Before running the frontend app, there should be at least 1 user in the database
 Always the user with id 1 is creating the Todo list. <br />
 
 ### Future Scope
-Adding VueX. <br />
-Create Login for the app. <br />
+Add VueX. <br />
+Create a login for the app. <br />
 Use the logged in user to create the Todo list. <br />
 Filter the Todo list by logged in user. <br />
 Deletion of Todo <br />
