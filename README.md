@@ -39,3 +39,8 @@ Create Login for the app. <br />
 Use the logged in user to create the Todo list. <br />
 Filter the Todo list by logged in user. <br />
 Deletion of Todo <br />
+
+
+### Learn from the Video Series:
+https://youtube.com/playlist?list=PLdLYbRBk3sGmX02sfc4dNU0DLh7hmK59P
+
